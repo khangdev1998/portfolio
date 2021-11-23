@@ -1,0 +1,123 @@
+.category {
+  padding-top: 150px;
+  &-container {
+    @include flexbox(
+      (
+        justify-content: space-between,
+        align-items: center,
+      )
+    );
+  }
+  &-image {
+    width: 41%;
+    img {
+      max-width: 100%;
+    }
+  }
+  &-wrapper {
+    width: 59%;
+    padding-left: 50px;
+    @include flexbox(
+      (
+        justify-content: space-between,
+      )
+    );
+  }
+  &-wrapper-column {
+    max-width: 311px;
+    margin-bottom: -68px;
+    & + & {
+      padding-left: 68px;
+      margin-bottom: -68px;
+    }
+  }
+  &-wrapper-items {
+    margin-bottom: 68px;
+  }
+  &-wrapper-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 156%;
+    color: $dark-color;
+    @include lineClamp(2);
+    word-break: break-all;
+  }
+  &-wrapper-desc {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 133%;
+    color: $gray-primary;
+    padding: 15px 0;
+  }
+  &-wrapper-link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    color: $primary-color;
+    text-decoration: none;
+    margin-right: 5px;
+  }
+  &-wrapper-next {
+    color: $primary-color;
+    font-size: 12px;
+  }
+  @include maxWidth(1023px) {
+    padding-top: 100px;
+  }
+  @include maxWidth(767px) {
+    padding-top: 60px;
+    &-container {
+      flex-direction: column-reverse;
+      text-align: center;
+      & > * {
+        width: 100%;
+      }
+    }
+    &-image img {
+      max-width: 80%;
+    }
+    &-wrapper {
+      padding-left: 0;
+      margin-bottom: 40px;
+    }
+    &-wrapper-column{
+      & + & {
+        padding-left: 20px;
+      }
+    }
+  }
+  @include maxWidth(424px) {
+    padding-top: 40px;
+    &-wrapper {
+      display: block;
+      @include scrollsnap(100%, 10px, block);
+    }
+    &-wrapper-column {
+      max-width: 100%;
+      margin: unset;
+      &:not(:nth-child(9999)) {
+        padding: 0;
+      }
+    }
+    &-wrapper-items {
+      margin-bottom: 40px;
+    }
+    &-image img {
+      max-width: 100%;
+    }
+  }
+}
+
+.brand {
+  padding-top: 150px;
+  text-align: center;
+  img {
+    @include size(100%, auto);
+  }
+  @include maxWidth(1279px) {
+    padding-top: 100px;
+  }
+  @include maxWidth(767px) {
+    padding-top: 40px;
+  }
+}

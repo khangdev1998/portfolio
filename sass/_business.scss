@@ -1,0 +1,73 @@
+.business {
+	--h-content: 140px;
+  padding-top: 140px;
+  &-container {
+    @include flexbox(
+      (
+        justify-content: space-between,
+      )
+    );
+  }
+  &-items {
+    width: calc(33.3333% - 53.3333px);
+		text-align: center
+  }
+  &-items-image {
+    @include size(var(--h-content));
+  }
+  &-content {
+		height: calc(100% - var(--h-content));
+		@include flexbox((
+			flex-direction: column,
+			justify-content: space-between
+		));
+    padding-top: 40px;
+    word-break: break-all;
+  }
+  &-content-title {
+    color: $dark-color;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 120%;
+		margin-bottom: 20px;
+  }
+  &-content-desc {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 156%;
+    color: $gray-secondary;
+  }
+  @include maxWidth(1023px) {
+    --h-content: 100px;
+    padding-top: 80px;
+    &-container {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: -40px;
+    }
+    &-items {
+      width: calc(50% - 40px);
+      margin: 0 auto 40px;
+    }
+    &-content {
+      padding-top: 20px;
+    }
+    &-content-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    &-content-desc {
+      font-size: 16px;
+    }
+  }
+  @include maxWidth(767px) {
+    --h-content: 85px;
+    padding-top: 60px;
+    &-container {
+      display: block;
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}
